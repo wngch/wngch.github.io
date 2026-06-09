@@ -3,38 +3,139 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TickStep</title>
+<meta name="robots" content="index,follow">
+<title>TickStep — メトロノーム連動トレーニング / Metronome Workouts</title>
+<meta name="description" content="メトロノームの BPM でリズムを刻みながら、トレーニングをステップごとに自動進行する iPhone / Apple Watch アプリ。A metronome-driven training app for iPhone & Apple Watch.">
 <style>
-  :root{--ink:#1B2838;--muted:#5a6b7b;--accent:#FF6B35;--bg:#F8F6F3;--card:#fff;--line:#e6e1da;}
+  :root{
+    --ink:#1B2838; --muted:#5a6b7b; --accent:#FF6B35; --bg:#F8F6F3; --card:#fff; --line:#e6e1da;
+  }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Helvetica Neue",Arial,sans-serif;
-    line-height:1.7;-webkit-text-size-adjust:100%;}
-  .wrap{max-width:680px;margin:0 auto;padding:56px 20px 80px}
-  .hero{display:flex;align-items:center;gap:16px;margin-bottom:8px}
-  .hero .dot{width:44px;height:44px;border-radius:12px;background:var(--accent);flex:0 0 auto}
-  .hero h1{font-size:2rem;margin:0;letter-spacing:.01em}
-  .tag{color:var(--muted);margin:.2em 0 2em}
-  .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
-  .links a{display:inline-block;background:var(--card);border:1px solid var(--line);
-    border-radius:12px;padding:12px 18px;color:var(--ink);text-decoration:none;font-weight:600}
-  .links a:hover{border-color:var(--accent);color:var(--accent)}
-  footer{color:var(--muted);font-size:.85rem;margin-top:48px}
-  a.plain{color:var(--accent);text-decoration:none}
+    line-height:1.7; -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:960px; margin:0 auto; padding:0 20px}
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* Hero */
+  .hero{display:flex; gap:40px; align-items:center; padding:64px 0 40px; flex-wrap:wrap}
+  .hero-copy{flex:1 1 320px; min-width:280px}
+  .brand{display:flex; align-items:center; gap:14px; margin-bottom:14px}
+  .brand .dot{width:40px; height:40px; border-radius:12px; background:var(--accent); flex:0 0 auto}
+  .brand h1{font-size:2.1rem; margin:0; letter-spacing:.01em}
+  .tagline{font-size:1.25rem; font-weight:700; margin:.2em 0}
+  .tagline-en{font-size:1.02rem; color:var(--muted); font-weight:600; margin:0 0 1em}
+  .lead{color:var(--ink); margin:.6em 0}
+  .lead-en{color:var(--muted); font-size:.95rem; margin:.2em 0 1.4em}
+  .badge{display:inline-block; background:var(--ink); color:#fff; border-radius:999px;
+    padding:9px 18px; font-size:.86rem; font-weight:600}
+  .badge .sub{opacity:.7; font-weight:400}
+  .hero-shot{flex:0 0 auto; width:260px; max-width:60vw}
+  .hero-shot img{width:100%; height:auto; border-radius:28px;
+    box-shadow:0 18px 50px rgba(27,40,56,.18); border:1px solid var(--line)}
+
+  /* Features */
+  section{padding:40px 0}
+  h2{font-size:1.5rem; margin:0 0 .2em}
+  h2 .en{color:var(--muted); font-weight:600; font-size:1rem}
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin-top:24px}
+  .feature{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px 22px}
+  .feature h3{margin:0 0 .3em; font-size:1.05rem}
+  .feature .en{display:block; color:var(--muted); font-weight:600; font-size:.82rem; margin-top:1px}
+  .feature p{margin:.5em 0 0; color:var(--muted); font-size:.92rem}
+
+  /* Gallery */
+  .gallery{display:flex; gap:20px; overflow-x:auto; padding:24px 0 8px; scroll-snap-type:x mandatory}
+  .gallery figure{margin:0; flex:0 0 auto; width:240px; scroll-snap-align:center}
+  .gallery img{width:100%; height:auto; border-radius:22px; border:1px solid var(--line);
+    box-shadow:0 12px 32px rgba(27,40,56,.12)}
+  .gallery figcaption{text-align:center; color:var(--muted); font-size:.85rem; margin-top:10px}
+
+  footer{border-top:1px solid var(--line); margin-top:32px; padding:32px 0 64px; color:var(--muted); font-size:.9rem}
+  footer .links{display:flex; flex-wrap:wrap; gap:18px; margin-bottom:12px}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="hero"><span class="dot"></span><h1>TickStep</h1></div>
-  <p class="tag">メトロノームの BPM でリズムを刻みながら、トレーニングメニューをステップごとに自動進行する iPhone / Apple Watch アプリ。<br>
-  A metronome-driven training app for iPhone &amp; Apple Watch that advances your workout flow step by step.</p>
 
-  <div class="links">
-    <a href="privacy/">プライバシーポリシー / Privacy Policy</a>
-    <a href="support/">サポート / Support</a>
-  </div>
+  <!-- ===== Hero ===== -->
+  <header class="hero">
+    <div class="hero-copy">
+      <div class="brand"><span class="dot"></span><h1>TickStep</h1></div>
+      <p class="tagline">ビートに乗って一歩ずつトレーニング</p>
+      <p class="tagline-en">Train to the beat, step by step</p>
+      <p class="lead">メトロノームのビートに合わせて、トレーニングメニューをステップごとに自動進行。音楽プレイリストを作る感覚で、自分だけのワークアウトを組み立てられる iPhone / Apple Watch アプリです。</p>
+      <p class="lead-en">A metronome-driven training app for iPhone &amp; Apple Watch. Build your own workout flows like a playlist and move in rhythm, step by step.</p>
+      <span class="badge">近日 App Store 公開予定 <span class="sub">· Coming soon</span></span>
+    </div>
+    <div class="hero-shot">
+      <img src="img/training.png" alt="トレーニング実行画面。ステップ名・残り時間・BPM・拍子・拍インジケーターを表示 / Training screen showing step name, timer, BPM and beat indicator" width="600" height="1303">
+    </div>
+  </header>
 
-  <footer>© 2026 TickStep · <a class="plain" href="../">nononono.jp</a></footer>
+  <!-- ===== Features ===== -->
+  <section>
+    <h2>主な機能 <span class="en">/ Features</span></h2>
+    <div class="grid">
+      <div class="feature">
+        <h3>メトロノーム連動の自動進行<span class="en">Metronome-driven auto-advance</span></h3>
+        <p>ステップごとに BPM を設定。リズムに乗って、次のステップへ自動で進みます。</p>
+      </div>
+      <div class="feature">
+        <h3>プレイリスト型フロー<span class="en">Playlist-style flows</span></h3>
+        <p>トレーニングメニューを作成・並び替え・再利用。自分だけのルーティンを自由に。</p>
+      </div>
+      <div class="feature">
+        <h3>2/3/4拍子＋無音タイマー<span class="en">Time signatures + silent timer</span></h3>
+        <p>1拍目にアクセント。音なしのカウントダウンだけでも使えます。</p>
+      </div>
+      <div class="feature">
+        <h3>Apple Watch ＆ 心拍数<span class="en">Apple Watch &amp; heart rate</span></h3>
+        <p>手首にハプティクス、運動中の心拍をリアルタイム表示。</p>
+      </div>
+      <div class="feature">
+        <h3>QRコードで共有<span class="en">Share via QR code</span></h3>
+        <p>作成したフローを、スキャン一つで友達に共有できます。</p>
+      </div>
+      <div class="feature">
+        <h3>リマインダー<span class="en">Reminders</span></h3>
+        <p>毎日／曜日指定の通知で、トレーニングの習慣化をサポート。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+  <section>
+    <h2>スクリーンショット <span class="en">/ Screenshots</span></h2>
+    <div class="gallery">
+      <figure>
+        <img src="img/training.png" alt="トレーニング実行画面 / Training screen" width="600" height="1303">
+        <figcaption>トレーニング実行 / Training</figcaption>
+      </figure>
+      <figure>
+        <img src="img/flowlist.png" alt="フロー一覧画面 / Flow list" width="600" height="1303">
+        <figcaption>フロー一覧 / Flows</figcaption>
+      </figure>
+      <figure>
+        <img src="img/qrshare.png" alt="QRコード共有画面 / QR code sharing" width="600" height="1303">
+        <figcaption>QR共有 / Share</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="links">
+      <a href="privacy/">プライバシーポリシー / Privacy Policy</a>
+      <a href="support/">サポート / Support</a>
+      <a href="../">nononono.jp</a>
+    </div>
+    © 2026 TickStep
+  </footer>
+
 </div>
 </body>
 </html>
