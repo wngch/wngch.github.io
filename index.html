@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
 <title>nononono.jp</title>
 <style>
   :root{--ink:#1B2838;--muted:#5a6b7b;--accent:#FF6B35;--bg:#F8F6F3;--card:#fff;--line:#e6e1da;}
@@ -18,7 +20,7 @@
   .app{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
     border-radius:14px;padding:16px 18px;text-decoration:none;color:var(--ink)}
   .app:hover{border-color:var(--accent)}
-  .app .dot{width:34px;height:34px;border-radius:10px;background:var(--accent);flex:0 0 auto}
+  .app .appicon{width:40px;height:40px;border-radius:10px;flex:0 0 auto;box-shadow:0 1px 6px rgba(27,40,56,.16)}
   .app .name{font-weight:700}
   .app .desc{color:var(--muted);font-size:.9rem}
   footer{color:var(--muted);font-size:.85rem;margin-top:56px}
@@ -32,7 +34,7 @@
   <h2>Apps</h2>
   <div class="apps">
     <a class="app" href="tickstep/">
-      <span class="dot"></span>
+      <img class="appicon" src="tickstep/img/appicon.png" alt="TickStep アプリアイコン" width="40" height="40">
       <span>
         <span class="name">TickStep</span><br>
         <span class="desc">メトロノーム連動トレーニングアプリ（iPhone / Apple Watch）</span>
