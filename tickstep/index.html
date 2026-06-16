@@ -33,9 +33,9 @@
   .tagline-en{font-size:1.02rem; color:var(--muted); font-weight:600; margin:0 0 1em}
   .lead{color:var(--ink); margin:.6em 0}
   .lead-en{color:var(--muted); font-size:.95rem; margin:.2em 0 1.4em}
-  .badge{display:inline-block; background:var(--ink); color:#fff; border-radius:999px;
-    padding:9px 18px; font-size:.86rem; font-weight:600}
-  .badge .sub{opacity:.7; font-weight:400}
+  .appstore-link{display:inline-block; margin-top:4px; line-height:0}
+  .appstore-link img{height:54px; width:auto}
+  .appstore-link:hover{opacity:.85}
   .hero-shot{flex:0 0 auto; width:260px; max-width:60vw}
   .hero-shot img{width:100%; height:auto; border-radius:28px;
     box-shadow:0 18px 50px rgba(27,40,56,.18); border:1px solid var(--line)}
@@ -72,7 +72,9 @@
       <p class="tagline-en">Train to the beat, step by step</p>
       <p class="lead">メトロノームのビートに合わせて、トレーニングメニューをステップごとに自動進行。音楽プレイリストを作る感覚で、自分だけのワークアウトを組み立てられる iPhone / Apple Watch アプリです。</p>
       <p class="lead-en">A metronome-driven training app for iPhone &amp; Apple Watch. Build your own workout flows like a playlist and move in rhythm, step by step.</p>
-      <span class="badge">近日 App Store 公開予定 <span class="sub">· Coming soon</span></span>
+      <a class="appstore-link" href="https://apps.apple.com/app/id6772100398" aria-label="App Store で TickStep をダウンロード / Download TickStep on the App Store">
+        <img src="img/appstore-badge-ja.svg" alt="App Store で入手 / Download on the App Store" width="147" height="54">
+      </a>
     </div>
     <div class="hero-shot">
       <img src="img/training.png" alt="トレーニング実行画面。ステップ名・残り時間・BPM・拍子・拍インジケーターを表示 / Training screen showing step name, timer, BPM and beat indicator" width="600" height="1303">
